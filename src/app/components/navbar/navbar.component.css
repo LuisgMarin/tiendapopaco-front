@@ -1,0 +1,18 @@
+/* navbar: */
+.navbar{
+  background-color: #000000;
+}
+.navbar-dark .nav-item .nav-link {
+  color: #fff;
+}
+
+.navbar-dark .nav-item .nav-link:hover {
+  background-color: #2C2C2C;
+  border-radius: 0.25rem;
+  color: #fff;
+}
+
+.fa-li {
+  position: relative;
+  left: 0;
+}
