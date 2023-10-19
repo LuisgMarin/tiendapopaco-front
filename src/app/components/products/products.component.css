@@ -37,3 +37,8 @@ label {
   font-size: 12px;
   color: #4f709c;
 }
+
+img {
+  width: 100px;
+  height: 300px;
+}
