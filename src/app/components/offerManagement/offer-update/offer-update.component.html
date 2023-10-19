@@ -1,0 +1,39 @@
+<section class="titulo mt-4">
+  <h2 class="text-center">
+    <a> Actualizar Oferta</a>
+  </h2>
+</section>
+
+<div class="container mt-4 mb-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card update-card">
+        <div class="card-header text-center">
+          <i class="fas fa-tag fa-4x mb-1">
+          </i>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="form-group form-outline mb-4">
+              <label class="form-label" for="idProducto">Id de Producto</label>
+              <input type="idProducto" id="idProducto" class="form-control" placeholder=""/>
+            </div>
+
+            <div class="form-group form-outline mb-4">
+              <label class="form-label" for="descuento">Descuento</label>
+              <input type="descuento" id="descuento" class="form-control" placeholder=""/>
+            </div>
+
+            <div class="row mb-4">
+              <div class="col d-flex justify-content-center" [routerLink]="['/listOffersAdmin']">
+                <button type="submit" class="btn update-btn  btn-block mb-4">
+                  Actualizar
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

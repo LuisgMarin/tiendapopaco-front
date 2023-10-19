@@ -1,0 +1,24 @@
+.container{
+  background-color: black;
+  font-family: Monserrat;
+  margin-top: 30px;
+  padding: 10px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.main-body {
+  padding-top: 20px;
+  margin: 0 auto;
+  max-width: 1348px;
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.action {
+  display: flex;
+  gap: 5px;
+}
