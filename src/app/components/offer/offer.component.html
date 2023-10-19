@@ -1,0 +1,35 @@
+<h1 class="title text-center mt-4">Ofertas</h1>
+<p class="lead mx-5">
+  ¡Descubre las mejores ofertas en Tienda Popaco! En esta sección, te
+  presentamos una selección de productos de alta calidad a precios increíbles
+</p>
+<div class="collection-list mt-3 mb-5 row gx-0 gy-3">
+  <div
+    class="col-md-6 col-lg-4 col-xl-3 p-2 best "
+    *ngFor="let product of products"
+  >
+    <div class="collection-img position-relative">
+      <a [routerLink]="['/products-detail']">
+      <img [src]="product.img" class="w-100" alt="{{ product.nombre }}" />
+      <span
+        class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center"
+        >{{ product.descuento }}%</span
+      >
+    </a>
+    </div>
+    <div class="text-center">
+      <div class="rating mt-3">
+        <span class="text-primary"><i class="fas fa-star"></i></span>
+        <span class="text-primary"><i class="fas fa-star"></i></span>
+        <span class="text-primary"><i class="fas fa-star"></i></span>
+        <span class="text-primary"><i class="fas fa-star"></i></span>
+        <span class="text-primary"><i class="fas fa-star"></i></span>
+      </div>
+      <p class="text-capitalize my-1">{{ product.nombre }}</p>
+      <p class="product-description">
+        {{ product.descripcion }}
+      </p>
+      <span class="fw-bold">${{ product.precio }}</span>
+    </div>
+  </div>
+</div>

@@ -13,6 +13,29 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { ProductsComponent } from './components/products/products.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { APP_ROUTING } from './app.routes';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { OfferComponent } from './components/offer/offer.component';
+import { ListOffersAdminComponent } from './components/offerManagement/list-offers-admin/list-offers-admin.component';
+import { OfferUpdateComponent } from './components/offerManagement/offer-update/offer-update.component';
+import { AddOfferComponent } from './components/offerManagement/add-offer/add-offer.component';
+import { ListProductsAdminComponent } from './components/productManagement/list-products-admin/list-products-admin.component';
+import { AddProductComponent } from './components/productManagement/add-product/add-product.component';
+import { ProductUpdateComponent } from './components/productManagement/product-update/product-update.component';
 
 @NgModule({
   declarations: [
@@ -25,14 +48,39 @@ import { APP_ROUTING } from './app.routes';
     CategoriesComponent,
     ProductDetailComponent,
     ProductsComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    OfferComponent,
+    ListOffersAdminComponent,
+    OfferUpdateComponent,
+    AddOfferComponent,
+    ListProductsAdminComponent,
+    AddProductComponent,
+    ProductUpdateComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    APP_ROUTING
+    APP_ROUTING,
+    BrowserAnimationsModule,
+    NgbModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatSnackBarModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

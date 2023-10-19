@@ -1,15 +1,15 @@
 /* navbar: */
 .navbar{
-  background-color: #000000;
+  background-color: #000000 !important;
 }
-.navbar-dark .nav-item .nav-link {
-  color: #fff;
+.navbar .nav-item .nav-link {
+  color: #fff !important;
 }
 
-.navbar-dark .nav-item .nav-link:hover {
-  background-color: #2C2C2C;
+.navbar .nav-item .nav-link:hover {
+  background-color: #2C2C2C !important;
   border-radius: 0.25rem;
-  color: #fff;
+  color: #fff !important;
 }
 
 .fa-li {

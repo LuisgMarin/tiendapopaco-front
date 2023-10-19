@@ -7,6 +7,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ShoppingCart } from '../../shopping-cart/shopping-cart';
 import { ShoppingCartService } from '../../shopping-cart/shopping-cart.service';
+import { OfferService } from './offer.service';
+import { Offer } from './offer';
 
 @Component({
   selector: 'app-list-offers-admin',
@@ -14,23 +16,21 @@ import { ShoppingCartService } from '../../shopping-cart/shopping-cart.service';
   styleUrls: ['./list-offers-admin.component.css'],
 })
 export class ListOffersAdminComponent implements OnInit {
-  products!: ShoppingCart[];
+  offer!: Offer[];
 
   constructor(private userRoleService: UserRoleService,
-    private shoppingCartService: ShoppingCartService,
+    private offerService: OfferService,
     private _dialog: MatDialog,
     private router: Router) {}
 
   ngOnInit(): void {
     this.userRoleService.setUserRole('2');
-    this.getProductsList();
+    this.getOffersList();
   }
 
   displayedColumns: string[] = [
     'nombre',
-    'img',
-    'descripcion',
-    'precio',
+    'idProduct',
     'descuento',
     'action'
   ];
@@ -39,8 +39,8 @@ export class ListOffersAdminComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  getProductsList() {
-    this.dataSource = new MatTableDataSource(this.products = this.shoppingCartService.getProducts());
+  getOffersList() {
+    this.dataSource = new MatTableDataSource(this.offer = this.offerService.getOffers());
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }

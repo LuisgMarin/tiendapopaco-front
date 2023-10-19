@@ -1,0 +1,33 @@
+.container {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.card {
+  width: 280px;
+  margin: 10px;
+  background-color: #202020;
+
+}
+
+.titulo {
+  color: white;
+  text-align: center;
+}
+
+/* collection */
+.active-filter-btn{
+  background-color: var(--pink)!important;
+  color: #fff!important;
+  border-color: var(--pink)!important;
+}
+.filter-button-group .btn:hover{
+  color: #fff!important;
+}
+.collection-img span{
+  top: 20px;
+  right: 20px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+}

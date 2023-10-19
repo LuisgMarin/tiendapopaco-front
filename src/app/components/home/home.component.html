@@ -1,216 +1,255 @@
-<header
-  id="header"
-  class="vh-100 carousel slide"
-  data-bs-ride="carousel"
-  style="padding-top: 104px"
->
-  <div class="container h-100 d-flex align-items-center carousel-inner">
-    <div class="text-center carousel-item active">
-      <h2 class="text-carousel text-white texto-carousel">
-        Lo ultimo en tecnologia
-      </h2>
+<div *ngIf="getUserRole() === '1'">
+  <header
+    id="header"
+    class="vh-100 carousel slide"
+    data-bs-ride="carousel"
+    style="padding-top: 104px"
+  >
+    <div class="container h-100 d-flex align-items-center carousel-inner">
+      <div class="text-center carousel-item active">
+        <h2 class="text-carousel text-white texto-carousel">
+          Lo ultimo en tecnologia
+        </h2>
+      </div>
+      <div class="text-center carousel-item">
+        <h2 class="text-carousel text-white">Mejores precios y ofertas</h2>
+      </div>
     </div>
-    <div class="text-center carousel-item">
-      <h2 class="text-carousel text-white">Mejores precios y ofertas</h2>
-    </div>
-  </div>
 
-  <button
-    class="carousel-control-prev"
-    type="button"
-    data-bs-target="#header"
-    data-bs-slide="prev"
-  >
-    <span class="carousel-control-prev-icon"></span>
-  </button>
-  <button
-    class="carousel-control-next"
-    type="button"
-    data-bs-target="#header"
-    data-bs-slide="next"
-  >
-    <span class="carousel-control-next-icon"></span>
-  </button>
-</header>
-<!-- Header Carousel -->
-<!-- Productos -->
-<section id="collection" class="py-5">
-  <div class="container">
-    <div class="title text-center">
-      <h2 class="position-relative d-inline-block">Categorias</h2>
-    </div>
-    <div class="collection-list mt-4 row gx-0 gy-3">
-      <div class="col-md-6 col-lg-4 col-xl-3 p-2 best">
-        <div class="collection-img position-relative">
-          <img src="../../../assets/img/relojInteligente.jpg" class="w-100" />
-        </div>
-        <div class="text-center">
-          <p class="text-capitalize my-1">relojes inteligentes</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
-        <div class="collection-img position-relative">
-          <img src="../../../assets/img/teclado.jpg" class="w-100" />
-        </div>
-        <div class="text-center">
-          <p class="text-capitalize my-1">Teclados</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
-        <div class="collection-img position-relative">
-          <img src="../../../assets/img/mouse.png" class="w-100" />
-        </div>
-        <div class="text-center">
-          <p class="text-capitalize my-1">Mouses</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 col-xl-3 p-2 new">
-        <div class="collection-img position-relative">
-          <img src="../../../assets/img/diadema.png" class="w-100" />
-        </div>
-        <div class="text-center">
-          <p class="text-capitalize my-1">Diadema</p>
-        </div>
-      </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#header"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#header"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </header>
+  <!-- Header Carousel -->
+  <!-- Productos -->
+  <section id="collection" class="py-5">
+    <div class="container">
       <div class="title text-center">
-        <h2 class="position-relative d-inline-block">Productos</h2>
+        <h2 class="position-relative d-inline-block">Categorias</h2>
       </div>
+      <div class="collection-list mt-4 row gx-0 gy-3">
+        <div class="col-md-6 col-lg-4 col-xl-3 p-2 best">
+          <div class="collection-img position-relative">
+            <img src="../../../assets/img/relojInteligente.jpg" class="w-100" />
+          </div>
+          <div class="text-center">
+            <p class="text-capitalize my-1">relojes inteligentes</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
+          <div class="collection-img position-relative">
+            <img src="../../../assets/img/teclado.jpg" class="w-100" />
+          </div>
+          <div class="text-center">
+            <p class="text-capitalize my-1">Teclados</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
+          <div class="collection-img position-relative">
+            <img src="../../../assets/img/mouse.png" class="w-100" />
+          </div>
+          <div class="text-center">
+            <p class="text-capitalize my-1">Mouses</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3 p-2 new">
+          <div class="collection-img position-relative">
+            <img src="../../../assets/img/diadema.png" class="w-100" />
+          </div>
+          <div class="text-center">
+            <p class="text-capitalize my-1">Diadema</p>
+          </div>
+        </div>
+        <div class="title text-center">
+          <h2 class="position-relative d-inline-block">Productos</h2>
+        </div>
 
-      <div class="col-md-6 col-lg-4 col-xl-3 p-2 best">
-        <div class="collection-img position-relative">
-          <a class="navbar-brand" [routerLink]="['products-detail']">
-            <img src="../../../assets/img/camara.jpg" class="w-100"
-          /></a>
-        </div>
-        <div class="text-center">
-          <div class="rating mt-3">
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
+        <div class="col-md-6 col-lg-4 col-xl-3 p-2 best">
+          <div class="collection-img position-relative">
+            <a class="navbar-brand" [routerLink]="['products-detail']">
+              <img src="../../../assets/img/camara.jpg" class="w-100"
+            /></a>
           </div>
-          <p class="text-capitalize my-1">camara</p>
-          <span class="fw-bold">$1.000.000</span>
+          <div class="text-center">
+            <div class="rating mt-3">
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+            </div>
+            <p class="text-capitalize my-1">camara</p>
+            <span class="fw-bold">$1.000.000</span>
+          </div>
         </div>
-      </div>
 
-      <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
-        <div class="collection-img position-relative">
-          <img src="../../../assets/img/clean_robot.jpg" class="w-100" />
-        </div>
-        <div class="text-center">
-          <div class="rating mt-3">
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
+        <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
+          <div class="collection-img position-relative">
+            <img src="../../../assets/img/clean_robot.jpg" class="w-100" />
           </div>
-          <p class="text-capitalize my-1">teclado 1</p>
-          <span class="fw-bold">$100.000</span>
+          <div class="text-center">
+            <div class="rating mt-3">
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+            </div>
+            <p class="text-capitalize my-1">teclado 1</p>
+            <span class="fw-bold">$100.000</span>
+          </div>
         </div>
-      </div>
 
-      <div class="col-md-6 col-lg-4 col-xl-3 p-2 new">
-        <div class="collection-img position-relative">
-          <img src="../../../assets/img/diadema2.jpg" class="w-100" />
-        </div>
-        <div class="text-center">
-          <div class="rating mt-3">
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
+        <div class="col-md-6 col-lg-4 col-xl-3 p-2 new">
+          <div class="collection-img position-relative">
+            <img src="../../../assets/img/diadema2.jpg" class="w-100" />
           </div>
-          <p class="text-capitalize my-1">gdiadema 1</p>
-          <span class="fw-bold">$100.000</span>
+          <div class="text-center">
+            <div class="rating mt-3">
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+            </div>
+            <p class="text-capitalize my-1">gdiadema 1</p>
+            <span class="fw-bold">$100.000</span>
+          </div>
         </div>
-      </div>
 
-      <div class="col-md-6 col-lg-4 col-xl-3 p-2 best">
-        <div class="collection-img position-relative">
-          <img src="../../../assets/img/teclado2.jpg" class="w-100" />
-        </div>
-        <div class="text-center">
-          <div class="rating mt-3">
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
+        <div class="col-md-6 col-lg-4 col-xl-3 p-2 best">
+          <div class="collection-img position-relative">
+            <img src="../../../assets/img/teclado2.jpg" class="w-100" />
           </div>
-          <p class="text-capitalize my-1">teclado 2</p>
-          <span class="fw-bold">$100.000</span>
+          <div class="text-center">
+            <div class="rating mt-3">
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+            </div>
+            <p class="text-capitalize my-1">teclado 2</p>
+            <span class="fw-bold">$100.000</span>
+          </div>
         </div>
-      </div>
 
-      <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
-        <div class="collection-img position-relative">
-          <img src="../../../assets/img/teclado-niatec.jpg" class="w-100" />
-        </div>
-        <div class="text-center">
-          <div class="rating mt-3">
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
+        <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
+          <div class="collection-img position-relative">
+            <img src="../../../assets/img/teclado-niatec.jpg" class="w-100" />
           </div>
-          <p class="text-capitalize my-1">teclado 3</p>
-          <span class="fw-bold">$100.000</span>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
-        <div class="collection-img position-relative">
-          <img src="../../../assets/img/diadema3.jpg" class="w-100" />
-        </div>
-        <div class="text-center">
-          <div class="rating mt-3">
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
+          <div class="text-center">
+            <div class="rating mt-3">
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+            </div>
+            <p class="text-capitalize my-1">teclado 3</p>
+            <span class="fw-bold">$100.000</span>
           </div>
-          <p class="text-capitalize my-1">Diadema 3</p>
-          <span class="fw-bold">$100.000</span>
         </div>
-      </div>
-      <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
-        <div class="collection-img position-relative">
-          <img src="../../../assets/img/mouse2.png" class="w-100" />
-        </div>
-        <div class="text-center">
-          <div class="rating mt-3">
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
+        <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
+          <div class="collection-img position-relative">
+            <img src="../../../assets/img/diadema3.jpg" class="w-100" />
           </div>
-          <p class="text-capitalize my-1">Mouse</p>
-          <span class="fw-bold">$100.000</span>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
-        <div class="collection-img position-relative">
-          <img src="../../../assets/img/mouse.png" class="w-100" />
-        </div>
-        <div class="text-center">
-          <div class="rating mt-3">
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
+          <div class="text-center">
+            <div class="rating mt-3">
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+            </div>
+            <p class="text-capitalize my-1">Diadema 3</p>
+            <span class="fw-bold">$100.000</span>
           </div>
-          <p class="text-capitalize my-1">Mouse2</p>
-          <span class="fw-bold">$90.000</span>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
+          <div class="collection-img position-relative">
+            <img src="../../../assets/img/mouse2.png" class="w-100" />
+          </div>
+          <div class="text-center">
+            <div class="rating mt-3">
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+            </div>
+            <p class="text-capitalize my-1">Mouse</p>
+            <span class="fw-bold">$100.000</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
+          <div class="collection-img position-relative">
+            <img src="../../../assets/img/mouse.png" class="w-100" />
+          </div>
+          <div class="text-center">
+            <div class="rating mt-3">
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+              <span class="text-primary"><i class="fas fa-star"></i></span>
+            </div>
+            <p class="text-capitalize my-1">Mouse2</p>
+            <span class="fw-bold">$90.000</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 <!-- Productos -->
+<div *ngIf="getUserRole() === '2'">
+  <header
+    id="header"
+    class="vh-100 carousel slide"
+    data-bs-ride="carousel"
+    style="padding-top: 104px"
+  >
+    <div class="container h-100 d-flex align-items-center carousel-inner">
+      <div class="text-center carousel-item active">
+        <h2 class="text-carousel text-white texto-carousel">
+          Gestion de Productos
+        </h2>
+      </div>
+      <div class="text-center carousel-item">
+        <h2 class="text-carousel text-white">Gestion de Ofertas</h2>
+      </div>
+    </div>
+
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#header"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#header"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </header>
+  <!-- Header Carousel -->
+</div>

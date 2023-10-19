@@ -1,70 +1,79 @@
-    <!-- Registro -->
-    <section>
-      <div class="container mt-4">
-        <div class="row">
-          <!-- Imagen -->
-          <div class="col-md-6">
-            <img
-              src="../../../assets/img/img-iniciosesion.png"
-              class="img-iniciosesion"
-            />
-          </div>
-          <!-- Imagen -->
-          <!-- Formulario registro -->
-          <div class="col-md-6">
-            <div class="card m-3 text-center d-flex align-items-center">
-              <div class="card-body">
-                <h5 class="card-title text-center">Registro</h5>
-                <form>
-                  <div class="form-group">
-                    <input
-                      type="nombre"
-                      class="form-control"
-                      aria-describedby="emailHelp"
-                      placeholder="Nombres*"
-                      required
-                    />
-                  </div>
-                  <div class="form-group">
-                    <input
-                      type="apellido"
-                      class="form-control"
-                      placeholder="Apellidos*"
-                      required
-                    />
-                  </div>
-                  <div class="form-group">
-                    <input
-                      type="email"
-                      class="form-control"
-                      placeholder="Email*"
-                      required
-                    />
-                  </div>
-                  <div class="form-group">
-                    <input
-                      type="password"
-                      class="form-control"
-                      placeholder="Contraseña*"
-                      required
-                    />
-                  </div>
-                  <a [routerLink]="['login']">
-                    <button type="button" class="btn btn-dark">
-                      Registrar
-                    </button>
-                  </a>
-                  <a [routerLink]="['login']">
-                    <button type="button" class="btn btn-dark">
-                      Iniciar Sesion
-                    </button>
-                  </a>
-                </form>
+<!-- Registro -->
+
+<section class="titulo mt-4">
+  <h2 class="text-center">
+    <a href="home-cliente.html">
+      <img src="../../../assets/img/logo.png" class="img-fluid" alt="Logo" />
+    </a>
+  </h2>
+</section>
+<!-- Imagen -->
+<!-- Formulario registro -->
+
+<section>
+  <div
+    class="container-fluid login vh-70 d-flex align-items-center justify-content-center mb-3"
+  >
+    <div class="row">
+      <!-- Imagen -->
+      <div class="col-md-6">
+        <img
+          src="../../../assets/img/img-iniciosesion.png"
+          class="img-iniciosesion"
+        />
+      </div>
+      <div class="col-md-6">
+        <div class="card m-3 text-center d-flex align-items-center">
+          <div class="card-body">
+            <h5 class="card-title text-center">Registro</h5>
+            <form>
+              <div class="form-group">
+                <input
+                  type="nombre"
+                  class="form-control"
+                  aria-describedby="emailHelp"
+                  placeholder="Nombres*"
+                  required
+                />
               </div>
-            </div>
+              <div class="form-group">
+                <input
+                  type="apellido"
+                  class="form-control"
+                  placeholder="Apellidos*"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Email*"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="Contraseña*"
+                  required
+                />
+              </div>
+              <a [routerLink]="['/login']">
+                <button type="button" class="btn btn-dark mx-2">Guardar</button>
+              </a>
+              <a [routerLink]="['/login']">
+                <button type="button" class="btn btn-dark">
+                  Iniciar Sesion
+                </button>
+              </a>
+            </form>
           </div>
-        <!-- Formulario registro -->
         </div>
       </div>
-    </section>
+    </div>
+    <!-- Formulario registro -->
     <!-- Registro -->
+  </div>
+</section>

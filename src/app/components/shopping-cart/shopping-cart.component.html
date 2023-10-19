@@ -1,68 +1,73 @@
-<div class="container mt-5">
-  <div class="row">
-      <div class="col-md-12 mt-5">
-          <h2 class="text-center mt-5 mb-5">Productos en el carrito</h2>
-          <div class="my-2 text-left">
-          </div>
-          <table class="table table-bordered table-striped">
-              <thead>
-                  <tr>
-                      <th>ID</th>
-                      <th>Nombre Producto</th>
-                      <th>Descripción</th>
-                      <th>Precio</th>
-                      <th>Descuento</th>
-                      <th>Acciones</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                      <td>1</td>
-                      <td>Producto 1</td>
-                      <td>Descripción del Producto 1</td>
-                      <td>$100.00</td>
-                      <td>10%</td>
-                      <td>
-                          <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>2</td>
-                      <td>Producto 2</td>
-                      <td>Descripción del Producto 2</td>
-                      <td>$150.00</td>
-                      <td>15%</td>
-                      <td>
-                          <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
-                      </td>
-                  </tr>
-                  <!-- Puedes agregar más filas con datos de productos aquí -->
-                  <tr>
-                      <td>3</td>
-                      <td>Producto 3</td>
-                      <td>Descripción del Producto 3</td>
-                      <td>$120.00</td>
-                      <td>8%</td>
-                      <td>
-                          <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>4</td>
-                      <td>Producto 4</td>
-                      <td>Descripción del Producto 4</td>
-                      <td>$200.00</td>
-                      <td>12%</td>
-                      <td>
-                          <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
-                      </td>
-                  </tr>
-              </tbody>
-          </table>
-          <p class="text-center mb-5">Aquí encontrarás una lista de nuestros productos. Puedes eliminar productos haciendo clic en el botón "Eliminar".</p>
-          <div class="text-center mb-5">
-              <button type="button" class="btn btn-dark">Comprar</button>
-          </div>
-      </div>
+<div class="container my-4">
+  <mat-form-field>
+    <mat-label>Filtro</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Camara"
+      #input
+    />
+  </mat-form-field>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- Progress Column -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+        <td mat-cell *matCellDef="let row">{{ row.nombre }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="img">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Img</th>
+        <td mat-cell *matCellDef="let row">
+          <img [src]="row.img" alt="Image" width="100" />
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="descripcion">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Descripcion</th>
+        <td mat-cell *matCellDef="let row">{{ row.descripcion }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="precio">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Precio</th>
+        <td mat-cell *matCellDef="let row">{{ row.precio }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="descuento">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Descuento</th>
+        <td mat-cell *matCellDef="let row">{{ row.descuento }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>a</th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button color="primary">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">
+          No data matching the filter "{{ input.value }}"
+        </td>
+      </tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      aria-label="Select page of users"
+    ></mat-paginator>
+  </div>
+  <div class="text-center mt-3">
+    <button type="button" class="btn btn-light">Comprar</button>
   </div>
 </div>
