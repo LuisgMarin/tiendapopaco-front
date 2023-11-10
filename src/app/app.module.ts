@@ -15,6 +15,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { APP_ROUTING } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgOptimizedImage } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -64,6 +65,7 @@ import { ProductUpdateComponent } from './components/productManagement/product-u
     APP_ROUTING,
     BrowserAnimationsModule,
     NgbModule,
+    NgOptimizedImage,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,

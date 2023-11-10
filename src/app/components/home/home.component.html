@@ -1,5 +1,5 @@
 <div *ngIf="getUserRole() === '1'">
-  <header
+  <header 
     id="header"
     class="vh-100 carousel slide"
     data-bs-ride="carousel"
@@ -43,7 +43,7 @@
       <div class="collection-list mt-4 row gx-0 gy-3">
         <div class="col-md-6 col-lg-4 col-xl-3 p-2 best">
           <div class="collection-img position-relative">
-            <img src="../../../assets/img/relojInteligente.jpg" class="w-100" />
+            <img [src]="'../../../assets/img/reloj.png'" class="w-100">
           </div>
           <div class="text-center">
             <p class="text-capitalize my-1">relojes inteligentes</p>
@@ -51,7 +51,7 @@
         </div>
         <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
           <div class="collection-img position-relative">
-            <img src="../../../assets/img/teclado.jpg" class="w-100" />
+            <img [src]="'../../../assets/img/teclado.png'" class="w-100">
           </div>
           <div class="text-center">
             <p class="text-capitalize my-1">Teclados</p>
@@ -59,7 +59,7 @@
         </div>
         <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
           <div class="collection-img position-relative">
-            <img src="../../../assets/img/mouse.png" class="w-100" />
+            <img [src]="'../../../assets/img/mouse.png'" class="w-100">
           </div>
           <div class="text-center">
             <p class="text-capitalize my-1">Mouses</p>
@@ -67,7 +67,7 @@
         </div>
         <div class="col-md-6 col-lg-4 col-xl-3 p-2 new">
           <div class="collection-img position-relative">
-            <img src="../../../assets/img/diadema.png" class="w-100" />
+            <img [src]="'../../../assets/img/diadema.png'" class="w-100">
           </div>
           <div class="text-center">
             <p class="text-capitalize my-1">Diadema</p>
@@ -80,8 +80,8 @@
         <div class="col-md-6 col-lg-4 col-xl-3 p-2 best">
           <div class="collection-img position-relative">
             <a class="navbar-brand" [routerLink]="['products-detail']">
-              <img src="../../../assets/img/camara.jpg" class="w-100"
-            /></a>
+              <img [src]="'../../../assets/img/camara.png'" class="w-100">
+              </a>
           </div>
           <div class="text-center">
             <div class="rating mt-3">
@@ -98,7 +98,7 @@
 
         <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
           <div class="collection-img position-relative">
-            <img src="../../../assets/img/clean_robot.jpg" class="w-100" />
+            <img [src]="'../../../assets/img/clean_robot.png'" class="w-100">
           </div>
           <div class="text-center">
             <div class="rating mt-3">
@@ -115,7 +115,7 @@
 
         <div class="col-md-6 col-lg-4 col-xl-3 p-2 new">
           <div class="collection-img position-relative">
-            <img src="../../../assets/img/diadema2.jpg" class="w-100" />
+            <img [src]="'../../../assets/img/diadema2.png'" class="w-100">
           </div>
           <div class="text-center">
             <div class="rating mt-3">
@@ -132,7 +132,7 @@
 
         <div class="col-md-6 col-lg-4 col-xl-3 p-2 best">
           <div class="collection-img position-relative">
-            <img src="../../../assets/img/teclado2.jpg" class="w-100" />
+            <img [src]="'../../../assets/img/teclado.png'" class="w-100">
           </div>
           <div class="text-center">
             <div class="rating mt-3">
@@ -149,7 +149,7 @@
 
         <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
           <div class="collection-img position-relative">
-            <img src="../../../assets/img/teclado-niatec.jpg" class="w-100" />
+            <img [src]="'../../../assets/img/teclado4.png'" class="w-100">
           </div>
           <div class="text-center">
             <div class="rating mt-3">
@@ -165,7 +165,7 @@
         </div>
         <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
           <div class="collection-img position-relative">
-            <img src="../../../assets/img/diadema3.jpg" class="w-100" />
+            <img [src]="'../../../assets/img/diadema3.png'" class="w-100">
           </div>
           <div class="text-center">
             <div class="rating mt-3">
@@ -181,7 +181,7 @@
         </div>
         <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
           <div class="collection-img position-relative">
-            <img src="../../../assets/img/mouse2.png" class="w-100" />
+            <img [src]="'../../../assets/img/mouse2.png'" class="w-100">
           </div>
           <div class="text-center">
             <div class="rating mt-3">
@@ -197,7 +197,7 @@
         </div>
         <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
           <div class="collection-img position-relative">
-            <img src="../../../assets/img/mouse.png" class="w-100" />
+            <img [src]="'../../../assets/img/mouse.png'" class="w-100">
           </div>
           <div class="text-center">
             <div class="rating mt-3">
