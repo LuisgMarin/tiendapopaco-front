@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { UserRoleService } from 'src/app/services/user-role.service';
 
 @Component({
   selector: 'app-offer-update',
@@ -7,9 +6,8 @@ import { UserRoleService } from 'src/app/services/user-role.service';
   styleUrls: ['./offer-update.component.css']
 })
 export class OfferUpdateComponent {
-  constructor(private userRoleService: UserRoleService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.userRoleService.setUserRole('2');
   }
 }

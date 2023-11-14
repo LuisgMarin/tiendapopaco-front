@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { UserRoleService } from 'src/app/services/user-role.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
@@ -18,13 +17,12 @@ import { Offer } from './offer';
 export class ListOffersAdminComponent implements OnInit {
   offer!: Offer[];
 
-  constructor(private userRoleService: UserRoleService,
+  constructor(
     private offerService: OfferService,
     private _dialog: MatDialog,
     private router: Router) {}
 
   ngOnInit(): void {
-    this.userRoleService.setUserRole('2');
     this.getOffersList();
   }
 

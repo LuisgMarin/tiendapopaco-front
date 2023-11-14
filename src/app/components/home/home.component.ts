@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { UserRoleService } from 'src/app/services/user-role.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +6,6 @@ import { UserRoleService } from 'src/app/services/user-role.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  constructor(private userRoleService: UserRoleService) { }
+  constructor() { }
 
-  getUserRole(): string {
-    return this.userRoleService.getUserRole();
-  }
 }

@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './auth/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
@@ -37,6 +37,9 @@ import { AddOfferComponent } from './components/offerManagement/add-offer/add-of
 import { ListProductsAdminComponent } from './components/productManagement/list-products-admin/list-products-admin.component';
 import { AddProductComponent } from './components/productManagement/add-product/add-product.component';
 import { ProductUpdateComponent } from './components/productManagement/product-update/product-update.component';
+import { AuthModule } from './auth/auth.module';
+import { authTokeninterceptorProvider } from './auth/interceptors';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,6 @@ import { ProductUpdateComponent } from './components/productManagement/product-u
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    LoginComponent,
     RegistrationComponent,
     CategoriesComponent,
     ProductDetailComponent,
@@ -57,13 +59,12 @@ import { ProductUpdateComponent } from './components/productManagement/product-u
     ListProductsAdminComponent,
     AddProductComponent,
     ProductUpdateComponent
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     APP_ROUTING,
-    BrowserAnimationsModule,
+    HttpClientModule,
     NgbModule,
     NgOptimizedImage,
     BrowserAnimationsModule,
@@ -80,9 +81,10 @@ import { ProductUpdateComponent } from './components/productManagement/product-u
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    AuthModule
   ],
-  providers: [],
+  providers: [authTokeninterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

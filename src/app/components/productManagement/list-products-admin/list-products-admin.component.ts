@@ -3,7 +3,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ShoppingCart } from '../../shopping-cart/shopping-cart';
-import { UserRoleService } from 'src/app/services/user-role.service';
 import { ShoppingCartService } from '../../shopping-cart/shopping-cart.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -16,13 +15,12 @@ import { Router } from '@angular/router';
 export class ListProductsAdminComponent implements OnInit {
   products!: ShoppingCart[];
 
-  constructor(private userRoleService: UserRoleService,
+  constructor(
     private shoppingCartService: ShoppingCartService,
     private _dialog: MatDialog,
     private router: Router) {}
 
   ngOnInit(): void {
-    this.userRoleService.setUserRole('2');
     this.getProductsList();
   }
 

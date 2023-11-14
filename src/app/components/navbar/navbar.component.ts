@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { UserRoleService } from 'src/app/services/user-role.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,10 +6,8 @@ import { UserRoleService } from 'src/app/services/user-role.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  constructor(private userRoleService: UserRoleService) { }
+  constructor() { }
 
-  getUserRole(): string {
-    return this.userRoleService.getUserRole();
-  }
+
 
 }
