@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg">
+<nav *ngIf="(authService.isLoggedIn$ | async) === false" class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand ms-5" [routerLink]="['/home']"
       ><img
@@ -48,16 +48,92 @@
             </li>
             <li><hr class="dropdown-divider" /></li>
             <li>
-              <a class="dropdown-item" [routerLink]="['/products']">Productos</a>
+              <a class="dropdown-item" [routerLink]="['/products']"
+                >Productos</a
+              >
             </li>
           </ul>
         </li>
         <li class="nav-item me-3">
-          <a class="nav-link d-flex align-items-center" [routerLink]="['/offer']"
+          <a
+            class="nav-link d-flex align-items-center"
+            [routerLink]="['/offer']"
             ><i class="fas fa-tag fa-lg me-1 mt-3 mb-3"></i>Ofertas</a
           >
         </li>
-        <li class="nav-item">
+        <li class="nav-item me-3">
+          <a class="nav-link d-flex me-1 mt-3 mb-3" [routerLink]="['/login']"
+            >Iniciar Sesion</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<nav *showForRoles="[1]" class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand ms-5" [routerLink]="['/home']"
+      ><img
+        id="TiendaPopaco-logo"
+        src="../../../assets/img/logo.png"
+        alt="TiendaPopaco Logo"
+        draggable="false"
+        height="50"
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <form class="d-flex align-items-center w-30 form-search" role="search">
+        <input
+          type="search"
+          class="form-control rounded-pill mx-5"
+          placeholder="  Buscar"
+          aria-label="Search"
+        />
+      </form>
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown me-3">
+          <a
+            class="nav-link dropdown-toggle me-1 mt-3 mb-3"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Menu
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" [routerLink]="['/categories']"
+                >Categorias</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" [routerLink]="['/products']"
+                >Productos</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item me-3">
+          <a
+            class="nav-link d-flex align-items-center"
+            [routerLink]="['/offer']"
+            ><i class="fas fa-tag fa-lg me-1 mt-3 mb-3"></i>Ofertas</a
+          >
+        </li>
+        <li  class="nav-item">
           <a
             class="nav-link d-flex align-items-center me-3"
             [routerLink]="['shopping-cart']"
@@ -69,14 +145,17 @@
           </a>
         </li>
         <li class="nav-item me-3">
-          <a class="nav-link d-flex me-1 mt-3 mb-3" [routerLink]="['/login']">Iniciar Sesion</a>
+          <a (click)="logout()"
+            class="nav-link d-flex align-items-center"
+            ><i class="fas fa-sign-out-alt fa-lg me-1 mt-3 mb-3"></i>Salir</a
+          >
         </li>
       </ul>
     </div>
   </div>
 </nav>
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg">
+<nav *showForRoles="[2]" class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand ms-5 me-5" [routerLink]="['/home']"
       ><img
@@ -126,13 +205,25 @@
           </ul>
         </li>
         <li class="nav-item me-3">
-          <a class="nav-link d-flex align-items-center" [routerLink]="['/listOffersAdmin']"
-            ><i class="fas fa-tag fa-lg me-1 mt-3 mb-3"></i> Gestionar Ofertas</a
+          <a
+            class="nav-link d-flex align-items-center"
+            [routerLink]="['/listOffersAdmin']"
+            ><i class="fas fa-tag fa-lg me-1 mt-3 mb-3"></i> Gestionar
+            Ofertas</a
           >
         </li>
         <li class="nav-item me-3">
-          <a class="nav-link d-flex align-items-center" [routerLink]="['/listProductsAdmin']"
-            ><i class="fas fa-store fa-lg me-1 mt-3 mb-3"></i> Gestionar Productos</a
+          <a
+            class="nav-link d-flex align-items-center"
+            [routerLink]="['/listProductsAdmin']"
+            ><i class="fas fa-store fa-lg me-1 mt-3 mb-3"></i> Gestionar
+            Productos</a
+          >
+        </li>
+        <li class="nav-item me-3">
+          <a (click)="logout()"
+            class="nav-link d-flex align-items-center"
+            ><i class="fas fa-sign-out-alt fa-lg me-1 mt-3 mb-3"></i>Salir</a
           >
         </li>
       </ul>

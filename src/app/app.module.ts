@@ -3,16 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { HomeComponent } from './components/home/home.component';
+import { NavbarComponent } from './management/components/navbar/navbar.component';
+import { FooterComponent } from './management/components/footer/footer.component';
+import { HomeComponent } from './management/components/home/home.component';
 import { LoginComponent } from './auth/login/login.component';
-import { RegistrationComponent } from './components/registration/registration.component';
-import { CategoriesComponent } from './components/categories/categories.component';
-import { ProductDetailComponent } from './components/product-detail/product-detail.component';
-import { ProductsComponent } from './components/products/products.component';
-import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
-import { APP_ROUTING } from './app.routes';
+import { RegistrationComponent } from './auth/registration/registration.component';
+import { CategoriesComponent } from './management/components/categories/categories.component';
+import { ProductDetailComponent } from './management/components/product-detail/product-detail.component';
+import { ProductsComponent } from './management/components/products/products.component';
+import { ShoppingCartComponent } from './management/components/shopping-cart/shopping-cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgOptimizedImage } from '@angular/common';
@@ -30,13 +29,13 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { OfferComponent } from './components/offer/offer.component';
-import { ListOffersAdminComponent } from './components/offerManagement/list-offers-admin/list-offers-admin.component';
-import { OfferUpdateComponent } from './components/offerManagement/offer-update/offer-update.component';
-import { AddOfferComponent } from './components/offerManagement/add-offer/add-offer.component';
-import { ListProductsAdminComponent } from './components/productManagement/list-products-admin/list-products-admin.component';
-import { AddProductComponent } from './components/productManagement/add-product/add-product.component';
-import { ProductUpdateComponent } from './components/productManagement/product-update/product-update.component';
+import { OfferComponent } from './management/components/offer/offer.component';
+import { ListOffersAdminComponent } from './management/components/offerManagement/list-offers-admin/list-offers-admin.component';
+import { OfferUpdateComponent } from './management/components/offerManagement/offer-update/offer-update.component';
+import { AddOfferComponent } from './management/components/offerManagement/add-offer/add-offer.component';
+import { ListProductsAdminComponent } from './management/components/productManagement/list-products-admin/list-products-admin.component';
+import { AddProductComponent } from './management/components/productManagement/add-product/add-product.component';
+import { ProductUpdateComponent } from './management/components/productManagement/product-update/product-update.component';
 import { AuthModule } from './auth/auth.module';
 import { authTokeninterceptorProvider } from './auth/interceptors';
 import { HttpClientModule } from '@angular/common/http';
@@ -58,12 +57,11 @@ import { HttpClientModule } from '@angular/common/http';
     AddOfferComponent,
     ListProductsAdminComponent,
     AddProductComponent,
-    ProductUpdateComponent
-  ],
+    ProductUpdateComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    APP_ROUTING,
+    AppRoutingModule,
     HttpClientModule,
     NgbModule,
     NgOptimizedImage,

@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, ignoreElements, map, Observable, tap } from 'rxjs';
 import { LoginCredentials } from './model';
-import { User, UserWithToken } from './model/user.interface';
+import { UserWithToken } from './model/user.interface';
+import { LoginResponse } from './model/login-response';
+import { Rol } from './model/roles.type';
 
 const USER_LOCAL_STORAGE_KEY = 'userData';
 
@@ -11,7 +13,7 @@ const USER_LOCAL_STORAGE_KEY = 'userData';
   providedIn: 'root',
 })
 export class AuthService {
-  private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
+  private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
   private urlEndPoint: string = 'http://localhost:8081';
   private user = new BehaviorSubject<UserWithToken | null>(null);
   user$ = this.user.asObservable();
@@ -22,12 +24,17 @@ export class AuthService {
   }
 
   login(credentials: LoginCredentials): Observable<never> {
-    return this.httpClient.post<string>(`${this.urlEndPoint}/login`, credentials, {headers: this.httpHeaders}).pipe(
-      tap((userToken) => this.saveTokenToLocalStore(userToken)),
-      tap((userToken) => this.pushNewUser(userToken)),
-      tap(() => this.redirectToHome()),
-      ignoreElements()
-    );
+    return this.httpClient
+      .post<LoginResponse>(`${this.urlEndPoint}/login`, credentials, {
+        headers: this.httpHeaders,
+      })
+      .pipe(
+        tap((response) => console.log(response.token)),
+        tap((response) => this.saveTokenToLocalStore(response)),
+        tap((response) => this.pushNewUser(response)),
+        tap(() => this.redirectToHome()),
+        ignoreElements()
+      );
   }
 
   logout(): void {
@@ -40,23 +47,25 @@ export class AuthService {
     this.router.navigateByUrl('/home');
   }
 
-  private pushNewUser(token: string) {
-    this.user.next(this.decodeToken(token));
-  }
-
-  private decodeToken(userToken: string): UserWithToken {
-    const userInfo = JSON.parse(window.atob(userToken)) as User;
-
-    return { ...userInfo, token: userToken };
+  private pushNewUser(response: LoginResponse) {
+    this.user.next({
+      usuario: response.usuario,
+      rol: response.rol as Rol,
+      token: response.token,
+    });
   }
 
   private loadUserFromLocalStorage(): void {
     const userFromLocal = localStorage.getItem(USER_LOCAL_STORAGE_KEY);
 
-    userFromLocal && this.pushNewUser(userFromLocal);
+    if (userFromLocal) {
+      const response: LoginResponse = JSON.parse(userFromLocal);
+      this.pushNewUser(response);
+    }
   }
-  private saveTokenToLocalStore(userToken: string): void {
-    localStorage.setItem(USER_LOCAL_STORAGE_KEY, userToken);
+
+  private saveTokenToLocalStore(response: LoginResponse): void {
+    localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(response));
   }
 
   private removeUserFromLocalStorage(): void {

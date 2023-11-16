@@ -11,10 +11,10 @@ import { AuthService } from '../auth.service';
 import { Rol } from '../model';
 
 @Directive({
-  selector: '[akoShowForRoles]',
+  selector: '[showForRoles]',
 })
 export class ShowForRolesDirective implements OnInit, OnDestroy {
-  @Input('akoShowForRoles') allowedRoles?: Rol[];
+  @Input('showForRoles') allowedRoles?: Rol[];
   private sub?: Subscription;
 
   constructor(

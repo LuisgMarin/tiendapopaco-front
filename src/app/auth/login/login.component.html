@@ -1,21 +1,21 @@
 <!-- Titulo -->
-<section class="titulo mt-4">
+<section class="titulo mt-md-5">
   <h2 class="text-center">
-    <a>
-      <img src="../../../assets/img/logo.png" class="img-fluid" alt="Logo" />
+    <a href="home-cliente.html">
+      <img [src]="'../../../assets/img/logo.png'" class="img-fluid" alt="Logo" />
     </a>
   </h2>
 </section>
 <!-- Titulo -->
 <section>
   <div
-    class="container-fluid login vh-70 d-flex align-items-center justify-content-center mb-3"
+    class="container-fluid login vh-100 d-flex align-items-center justify-content-center mb-5"
   >
     <div class="row">
       <!-- Imagen -->
       <div class="col-md-6">
         <img
-          src="../../../assets/img/img-iniciosesion.png"
+          [src]="'../../../assets/img/img-iniciosesion.png'"
           class="img-iniciosesion"
         />
       </div>
@@ -27,24 +27,34 @@
             <h5 class="card-title text-center m-2">Inicio de Sesion</h5>
             <form [formGroup]="form" (ngSubmit)="login()">
               <div class="form-group">
-                <label for="usuario"> Usuario </label>
                 <input
                   type="text"
                   name="usuario"
+                  class="form-control"
                   formControlName="usuario"
+                  placeholder="Usuario*"
                   autocomplete="off"
                 />
               </div>
               <div class="form-group">
-                <label for="contrasena"> Contraseña </label>
-                <input type="password" name="contrasena" formControlName="contrasena" />
-                <p *ngIf="form.hasError('invalidCredentials')" class="error-msg">
+                <input
+                  type="password"
+                  name="contrasena"
+                  formControlName="contrasena"
+                  class="form-control"
+                  placeholder="Contraseña*"
+                  required
+                />
+                <p
+                  *ngIf="form.hasError('invalidCredentials')"
+                  class="error-msg"
+                >
                   Las credenciales son incorrectas
                 </p>
               </div>
 
               <div class="d-flex justify-content-between mb-5">
-                <button type="submit" [disabled]="form.invalid || processingRequest">
+                <button class="btn btn-dark m-1" type="submit" [disabled]="form.invalid || processingRequest">
                   Iniciar Sesión
                 </button>
                 <a class="btn btn-dark m-1">Registrar</a>
