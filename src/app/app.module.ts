@@ -7,11 +7,9 @@ import { NavbarComponent } from './management/components/navbar/navbar.component
 import { FooterComponent } from './management/components/footer/footer.component';
 import { HomeComponent } from './management/components/home/home.component';
 import { CategoriesComponent } from './management/components/categories/categories.component';
-import { ProductDetailComponent } from './management/components/product-detail/product-detail.component';
 import { ProductsComponent } from './management/components/products/products.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -31,6 +29,7 @@ import { AuthModule } from './auth/auth.module';
 import { authTokeninterceptorProvider } from './auth/interceptors';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgOptimizedImage } from '@angular/common';
 
 @NgModule({
   declarations: [
