@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { hasRole } from '../auth/guards/has-role.guard';
 import { HomeComponent } from './components/home/home.component';
 import { ManagementLayoutComponent } from './components/management-layout/management-layout.component';
+import { ListProductsAdminModule } from './components/productManagement/list-products-admin/list-products-admin.module';
 
 const routes: Routes = [
   {
@@ -16,113 +17,75 @@ const routes: Routes = [
       {
         path: 'shopping-cart',
         canActivate: [hasRole([1])],
-        canMatch: [hasRole([1])],
-        // canActivate: [HasRoleGuard],
-        // canLoad: [HasRoleGuard],
-        // data: {
-        //   allowedRoles: ['Orders', 'Manager'],
-        // },
+        canLoad: [hasRole([1])],
         loadChildren: () =>
-          import('./components/shopping-cart/shopping-cart.component').then((m) => m.ShoppingCartComponent),
+          import('./components/shopping-cart/shopping-cart.module').then(
+            (m) => m.ShoppingCartModule
+          ),
       },
       {
         path: 'listProductsAdmin',
         canActivate: [hasRole([2])],
         canMatch: [hasRole([2])],
-        // canActivate: [HasRoleGuard],
-        // canLoad: [HasRoleGuard],
-        // data: {
-        //   allowedRoles: ['Orders', 'Manager'],
-        // },
         loadChildren: () =>
-          import('./components/productManagement/list-products-admin/list-products-admin.component').then((m) => m.ListProductsAdminComponent),
+          import(
+            './components/productManagement/list-products-admin/list-products-admin.module'
+          ).then((m) => m.ListProductsAdminModule),
       },
       {
-        path: 'productUpdate',
+        path: 'productUpdate/:idproducto',
         canActivate: [hasRole([2])],
         canMatch: [hasRole([2])],
-        // canActivate: [HasRoleGuard],
-        // canLoad: [HasRoleGuard],
-        // data: {
-        //   allowedRoles: ['Orders', 'Manager'],
-        // },
         loadChildren: () =>
-          import('./components/productManagement/product-update/product-update.component').then((m) => m.ProductUpdateComponent),
+          import(
+            './components/productManagement/product-update/product-update.module'
+          ).then((m) => m.ProductUpdateModule),
       },
       {
         path: 'addProduct',
         canActivate: [hasRole([2])],
         canMatch: [hasRole([2])],
-        // canActivate: [HasRoleGuard],
-        // canLoad: [HasRoleGuard],
-        // data: {
-        //   allowedRoles: ['Orders', 'Manager'],
-        // },
         loadChildren: () =>
-          import('./components/productManagement/add-product/add-product.component').then((m) => m.AddProductComponent),
+          import(
+            './components/productManagement/add-product/add-product.module'
+          ).then((m) => m.AddProductModule),
       },
       {
         path: 'listOffersAdmin',
         canActivate: [hasRole([2])],
         canMatch: [hasRole([2])],
-        // canActivate: [HasRoleGuard],
-        // canLoad: [HasRoleGuard],
-        // data: {
-        //   allowedRoles: ['Orders', 'Manager'],
-        // },
         loadChildren: () =>
-          import('./components/offerManagement/list-offers-admin/list-offers-admin.component').then((m) => m.ListOffersAdminComponent),
+          import(
+            './components/offerManagement/list-offers-admin/list-offer-admin.module'
+          ).then((m) => m.ListOffersAdminModule),
       },
       {
         path: 'offerUpdate',
         canActivate: [hasRole([2])],
         canMatch: [hasRole([2])],
-        // canActivate: [HasRoleGuard],
-        // canLoad: [HasRoleGuard],
-        // data: {
-        //   allowedRoles: ['Orders', 'Manager'],
-        // },
         loadChildren: () =>
-          import('./components/offerManagement/offer-update/offer-update.component').then((m) => m.OfferUpdateComponent),
+          import(
+            './components/offerManagement/offer-update/offer-update.module'
+          ).then((m) => m.OfferUpdateModule),
       },
       {
         path: 'addOffer',
         canActivate: [hasRole([2])],
         canMatch: [hasRole([2])],
-        // canActivate: [HasRoleGuard],
-        // canLoad: [HasRoleGuard],
-        // data: {
-        //   allowedRoles: ['Orders', 'Manager'],
-        // },
         loadChildren: () =>
-          import('./components/offerManagement/add-offer/add-offer.component').then((m) => m.AddOfferComponent),
-      },
-      /*{
-        path: 'products-detail',
-        canActivate: [hasRole(['Inventory', 'Manager'])],
-        canLoad: [hasRole(['Inventory', 'Manager'])],
-        // canActivate: [HasRoleGuard],
-        // canLoad: [HasRoleGuard],
-        // data: {
-        //   allowedRoles: ['Inventory', 'Manager'],
-        // },
-        loadChildren: () =>
-          import('./inventory/inventory.module').then((m) => m.InventoryModule),
+          import(
+            './components/offerManagement/add-offer/add-offer.module'
+          ).then((m) => m.AddOfferModule),
       },
       {
-        path: 'accounting',
-        canActivate: [hasRole(['Accounting', 'Manager'])],
-        canLoad: [hasRole(['Accounting', 'Manager'])],
-        // canActivate: [HasRoleGuard],
-        // canLoad: [HasRoleGuard],
-        // data: {
-        //   allowedRoles: ['Accounting', 'Manager'],
-        // },
+        path: 'products-detail/:idproducto',
+        canActivate: [hasRole([1])],
+        canMatch: [hasRole([1])],
         loadChildren: () =>
-          import('./accounting/accounting.module').then(
-            (m) => m.AccountingModule
-          ),
-      },*/
+          import(
+            './components/product-detail/product-detail.module'
+          ).then((m) => m.ProductDetailModule),
+      },
     ],
   },
 ];
@@ -131,4 +94,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ManagementRoutingModule { }
+export class ManagementRoutingModule {}

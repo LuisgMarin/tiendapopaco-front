@@ -7,66 +7,84 @@
 <div class="container mt-4 mb-4">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <div class="card update-card">
+      <div class="card add-card">
         <div class="card-header text-center">
           <i class="fas fa-store-alt fa-4x mb-1"> </i>
         </div>
         <div class="card-body">
-          <form>
+          <form [formGroup]="form" (ngSubmit)="submit()">
             <div class="form-group form-outline mb-4">
               <label class="form-label" for="nombreProducto"
                 >Nombre de Producto</label
               >
               <input
-                type="nombreProducto"
-                id="nombreProducto"
+                formControlName="nombre"
+                type="text"
+                id="nombre"
                 class="form-control"
-                placeholder=""
               />
+              <div
+                *ngIf="f['nombre'].touched && f['nombre'].invalid"
+                class="alert alert-danger"
+              >
+                <div
+                  *ngIf="f['nombre'].errors && f['nombre'].errors['required']"
+                >
+                  El nombre es requerido
+                </div>
+              </div>
             </div>
 
-            <div class="form-group form-outline mb-4">
-              <label class="form-label mx-2" for="imagen">Imagen</label>
-              <input type="file" />
-            </div>
 
             <div class="form-group form-outline mb-4">
               <label class="form-label" for="descripcion">Descripcion</label>
-              <input
-                type="descripcion"
+              <textarea
+                formControlName="descripcion"
                 id="descripcion"
                 class="form-control"
-                placeholder=""
-              />
+              ></textarea>
+              <div
+                *ngIf="f['descripcion'].touched && f['descripcion'].invalid"
+                class="alert alert-danger"
+              >
+                <div
+                  *ngIf="
+                    f['descripcion'].errors &&
+                    f['descripcion'].errors['required']
+                  "
+                >
+                  La descripcion es requerida
+                </div>
+              </div>
             </div>
 
             <div class="form-group form-outline mb-4">
               <label class="form-label" for="precio">Precio</label>
               <input
+                formControlName="precio"
                 type="number"
                 id="precio"
                 class="form-control"
-                placeholder=""
               />
-            </div>
-
-            <div class="form-group form-outline mb-4">
-              <label class="form-label" for="descuento">Descuento</label>
-              <input
-                type="number"
-                id="descuento"
-                class="form-control"
-                placeholder=""
-              />
-            </div>
-
-            <div class="row mb-4">
               <div
-                class="col d-flex justify-content-center"
-                [routerLink]="['/listProductsAdmin']"
+                *ngIf="f['precio'].touched && f['precio'].invalid"
+                class="alert alert-danger"
               >
-                <button type="submit" class="btn update-btn btn-block mb-4">
-                  Actualizar
+                <div
+                  *ngIf="f['precio'].errors && f['precio'].errors['required']"
+                >
+                  El precio es requerido
+                </div>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col d-flex justify-content-center">
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                  [disabled]="!form.valid"
+                >
+                  Guardar
                 </button>
               </div>
             </div>

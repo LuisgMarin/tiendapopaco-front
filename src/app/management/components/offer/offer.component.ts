@@ -13,7 +13,6 @@ export class OfferComponent implements OnInit {
   constructor(private shoppingCartService: ShoppingCartService) {}
 
   ngOnInit() {
-    this.products = this.shoppingCartService.getProducts();
   }
 }
 

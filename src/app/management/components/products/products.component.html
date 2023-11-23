@@ -12,140 +12,26 @@
       <h2 class="position-relative d-inline-block">Productos</h2>
     </div>
     <div class="collection-list mt-4 row gx-0 gy-3">
-      <div class="col-md-6 col-lg-4 col-xl-3 p-2 best">
+      <div
+        *ngFor="let producto of (products | async)"
+        class="col-md-6 col-lg-4 col-xl-3 p-2 best"
+      >
         <div class="collection-img position-relative">
-          <a [routerLink]="['/products-detail']">
-            <img [src]="'../../../assets/img/camara.png'" class="w-100">
+          <a [routerLink]="['/products-detail', producto.idproducto]">
+            <img [src]="producto.img" class="w-100" />
           </a>
         </div>
         <div>
           <div class="rating mt-3 mb-2 text-center">
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
+            <!-- Aquí puedes agregar código para mostrar la calificación del producto -->
           </div>
-          <p class="lead text-capitalize text-center my-1">Camara</p>
-          <p class="product-description">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora
-            molestias sit cum eius magni provident facere nostrum libero! A
-            temporibus sint assumenda cumque similique facilis illo ipsam
-            perferendis maiores? Dolore!
+          <p class="lead text-capitalize text-center my-1">
+            {{ producto.nombre }}
           </p>
-          <span class="fw-bold">$150.000</span>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
-        <div class="collection-img position-relative">
-          <img [src]="'../../../assets/img/clean_robot.png'" class="w-100">
-        </div>
-        <div>
-          <div class="rating mt-3 mb-2 text-center">
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-          </div>
-          <p class="lead text-capitalize text-center my-1">Teclado Mecánico Gaming</p>
           <p class="product-description">
-            El teclado mecánico gaming ofrece una experiencia de juego
-            inigualable con teclas retroiluminadas, interruptores mecánicos de
-            alta calidad y teclas programables. Domina tus juegos con precisión
-            y estilo.
+            {{ producto.descripcion }}
           </p>
-          <span class="fw-bold">$180.000</span>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4 col-xl-3 p-2 new">
-        <div class="collection-img position-relative">
-          <img [src]="'../../../assets/img/diadema2.png'" class="w-100">
-        </div>
-        <div>
-          <div class="rating mt-3 mb-2 text-center">
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-          </div>
-          <p class="lead text-capitalize text-center my-1">Auriculares Inalámbricos</p>
-          <p class="product-description">
-            Auriculares inalámbricos con cancelación de ruido, calidad de sonido
-            excepcional y larga duración de batería. Sumérgete en tu música
-            favorita con la máxima comodidad.
-          </p>
-          <span class="fw-bold">$120.000</span>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4 col-xl-3 p-2 best">
-        <div class="collection-img position-relative">
-          <img [src]="'../../../assets/img/teclado3.png'" class="w-100">
-        </div>
-        <div>
-          <div class="rating mt-3 mb-2 text-center">
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-          </div>
-          <p class="lead text-capitalize text-center my-1">Teclado Mecánico Gaming</p>
-          <p class="product-description">
-            El teclado mecánico gaming ofrece una experiencia de juego
-            inigualable con teclas retroiluminadas, interruptores mecánicos de
-            alta calidad y teclas programables. Domina tus juegos con precisión
-            y estilo.
-          </p>
-          <span class="fw-bold">$180.000</span>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
-        <div class="collection-img position-relative">
-          <img [src]="'../../../assets/img/teclado4.png'" class="w-100">
-        </div>
-        <div>
-          <div class="rating mt-3 mb-2 text-center">
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-          </div>
-          <p class="lead text-capitalize text-center my-2">Teclado Mecánico Gaming</p>
-          <p class="product-description">
-            El teclado mecánico gaming ofrece una experiencia de juego
-            inigualable con teclas retroiluminadas, interruptores mecánicos de
-            alta calidad y teclas programables. Domina tus juegos con precisión
-            y estilo.
-          </p>
-          <span class="fw-bold">$180.000</span>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
-        <div class="collection-img position-relative">
-          <img [src]="'../../../assets/img/diadema3.png'" class="w-100">
-        </div>
-        <div>
-          <div class="rating mt-3 mb-2 text-center">
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-            <span class="text-primary"><i class="fas fa-star"></i></span>
-          </div>
-          <p class="lead text-capitalize text-center my-1">Auriculares Inalámbricos</p>
-          <p class="product-description">
-            Auriculares inalámbricos con cancelación de ruido, calidad de sonido
-            excepcional y larga duración de batería. Sumérgete en tu música
-            favorita con la máxima comodidad.
-          </p>
-          <span class="fw-bold">$120.000</span>
+          <span class="fw-bold">${{ producto.precio }}</span>
         </div>
       </div>
     </div>

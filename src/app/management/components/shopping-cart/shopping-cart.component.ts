@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
 import { ShoppingCart } from './shopping-cart';
 import { ShoppingCartService } from './shopping-cart.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -6,14 +6,17 @@ import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { ItemCarrito } from 'src/app/models/itemCarrito';
 
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShoppingCartComponent implements OnInit {
   products!: ShoppingCart[];
+  listaItemsCarrito: ItemCarrito[] = [];
 
   constructor(
     private shoppingCartService: ShoppingCartService,
@@ -26,7 +29,7 @@ export class ShoppingCartComponent implements OnInit {
     'img',
     'descripcion',
     'precio',
-    'descuento',
+    'cantidad',
   ];
   dataSource!: MatTableDataSource<any>;
 
@@ -34,13 +37,9 @@ export class ShoppingCartComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   ngOnInit(): void {
-    this.getProductsList();
-    console.log(this.products = this.shoppingCartService.getProducts());
-
-  }
-
-  getProductsList() {
-    this.dataSource = new MatTableDataSource(this.products = this.shoppingCartService.getProducts());
+    this.listaItemsCarrito = this.shoppingCartService.getProducts();
+    console.log(this.listaItemsCarrito);
+    this.dataSource = new MatTableDataSource(this.listaItemsCarrito);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }

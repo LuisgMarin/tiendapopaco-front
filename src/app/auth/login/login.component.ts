@@ -8,6 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { catchError, EMPTY, finalize } from 'rxjs';
 import { AuthService } from '../auth.service';
 import { LoginCredentials } from '../model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -46,12 +47,28 @@ export class LoginComponent {
             this.handleUnauthorized();
             return EMPTY;
           }
-
+          if (error.status === 400) {
+            const serverErrorMessage = error.error.message;
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: `Ha ocurrido un error ${error.status}: ${serverErrorMessage}`,
+            });
+            return EMPTY;
+          }
+          if (error.status === 404) {
+            const serverErrorMessage = error.error.message;
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: `Ha ocurrido un error ${error.status}: ${serverErrorMessage}`,
+            });
+            return EMPTY;
+          }
           throw error;
         })
       )
       .subscribe();
-      console.log(this.form.value);
   }
 
   handleUnauthorized() {

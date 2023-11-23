@@ -6,6 +6,7 @@ import { LoginCredentials } from './model';
 import { UserWithToken } from './model/user.interface';
 import { LoginResponse } from './model/login-response';
 import { Rol } from './model/roles.type';
+import { Registration } from './model/registration.interface';
 
 const USER_LOCAL_STORAGE_KEY = 'userData';
 
@@ -29,10 +30,20 @@ export class AuthService {
         headers: this.httpHeaders,
       })
       .pipe(
-        tap((response) => console.log(response.token)),
         tap((response) => this.saveTokenToLocalStore(response)),
         tap((response) => this.pushNewUser(response)),
         tap(() => this.redirectToHome()),
+        ignoreElements()
+      );
+  }
+
+  registration(registration: Registration): Observable<never> {
+    return this.httpClient
+      .post<LoginResponse>(`${this.urlEndPoint}/register`, registration, {
+        headers: this.httpHeaders,
+      })
+      .pipe(
+        tap((response) => this.pushNewUser(response)),
         ignoreElements()
       );
   }

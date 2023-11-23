@@ -6,7 +6,7 @@
       </div>
       <!-- Imagen -->
       <div class="col-md-6">
-        <img src="../../../assets/img/camara.jpg" style="width: 400px" />
+        <img [src]="producto.img" style="width: 400px" />
       </div>
       <!-- Imagen -->
       <!-- Detalle -->
@@ -14,16 +14,13 @@
         <div class="card me-5 mt-5 d-flex align-items-center">
           <div class="card-body">
             <h5 class="card-title text-center">
-              Cámara Fotográfica Profesional
+              {{ producto.nombre }}
+
             </h5>
             <p class="font-italic">
-              La Cámara Fotográfica Profesional Elegance 2023 es una obra
-              maestra de la tecnología de captura de imágenes. Con una
-              calidad de imagen excepcional y características innovadoras,
-              esta cámara está diseñada para llevar tu creatividad a un
-              nivel completamente nuevo.
+              {{ producto.descripcion }}
             </p>
-            <p class="text-center">Precio: $100.00</p>
+            <p class="text-center">Precio: ${{ producto.precio }}</p>
             <p class="text-center">Disponibilidad: En Stock</p>
             <div class="mb-3 text-center">
               <input
@@ -33,7 +30,7 @@
                 value="1"
               />
             </div>
-            <button class="btn btn-primary btn-block">
+            <button class="btn btn-primary btn-block" (click)="agregarCarrito(producto)">
               Agregar al Carrito
             </button>
           </div>
